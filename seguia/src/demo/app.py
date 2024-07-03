@@ -112,7 +112,8 @@ def plot_value_map(column_to_plot, title):
     ax.spines['right'].set_visible(False)
     ax.spines['bottom'].set_visible(False)
     ax.spines['left'].set_visible(False)
-    plt.savefig(f'/reports/figures/{column_to_plot}.png')
+    save_fig_path = join_paths(general_path, f'reports/figures/{column_to_plot}.png')
+    plt.savefig(save_fig_path)
     return ax
 
 plot_value_map('prediction', 'Predicción del modelo')
@@ -170,11 +171,13 @@ def plot_entity_municipalities_future_drought(selected_future_date_idx,
     # Hover over municipalities to get additional information
 
 # data input and resources
-seguia_logo_img = Image.open("references/branding/Logo seguia.png")
+seguia_logo_img = join_paths(general_path, 'reports/figures/logo.png')
+prediction_fig_path = join_paths(general_path, 'reports/figures/prediction.png')
+realval_fig_path = join_paths(general_path, 'reports/figures/real_value.png')
+
 
 # configuration
 theme = dbc.themes.MORPH
-
 
 descr_seguia = 'SeGuía es un modelo de inteligencia artificial diseñado para predecir la presencia de sequías. Utiliza datos históricos del Monitor de Sequía en México (MSM), junto con información climatológica de la Nasa, geológica y demográfica de diversas fuentes, para realizar predicciones anticipadas.'
 usual_padding = '5px 20px 20px 20px'
@@ -188,7 +191,7 @@ app = Dash(
 
 app.layout = html.Div([
     # html.H1(children='SeGuía', style={'textAlign':'center'}),
-    html.Div([html.Img(src=seguia_logo_img)], style={'textAlign': 'center', "fontSize": "1.5rem"}),
+    html.Div([html.Img(src=Image.open(seguia_logo_img))], style={'textAlign': 'center'}),
     html.P(children=descr_seguia, style={'padding': usual_padding, 'textAlign': 'center',  "fontSize": "1.5rem"}),
     html.Div([dcc.Dropdown(entity_list, 'Jalisco', id='entity-dropdown-for-prediction',),
               html.P(children=descr_demo_lista),],
@@ -219,14 +222,14 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             html.Div([html.Img(
-                src=Image.open('reports/figures/prediction.png'))],
+                src=Image.open(prediction_fig_path))],
                      style={'textAlign': 'center'}),
 
         ], style={'width': '48%', 'display': 'inline-block',
                   'float': 'left', }),
         html.Div([
             html.Div([html.Img(
-                src=Image.open('reports/figures/real_value.png'))],
+                src=Image.open(realval_fig_path))],
                      style={'textAlign': 'center'}),
         ], style={'width': '48%', 'display': 'inline-block',
                   'float': 'right', })
