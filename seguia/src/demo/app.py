@@ -226,7 +226,7 @@ app.layout = html.Div([
         ], style={'width': '48%', 'display': 'inline-block',
                   'float': 'right', })
     ]),
-    html.H2(children='Dale un vistazo al código', style={'textAlign':'center'}),
+    #html.H2(children='Dale un vistazo al código', style={'textAlign':'center'}),
     html.Div([html.Img(src=Image.open(seguia_codigo_qr_img))], style={'textAlign': 'center'}),
 
 ])
