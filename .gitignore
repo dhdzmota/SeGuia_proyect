@@ -91,8 +91,19 @@ target/
 # Proyect folders and files
 data/
 data - copy/
+notebooks/meteorological_imgs/
+
 *.pkl
 *.dbf
 *.shp
 *.shx
 *.parquet
+*.mp4
+*.cache.sqlite
+
+# Specific documents
+*IPCC_AR6_WGII_FullReport.pdf
+*file*.png
+*test.ipynb
+
+
