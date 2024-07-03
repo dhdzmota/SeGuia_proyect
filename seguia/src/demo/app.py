@@ -1,7 +1,5 @@
 import dash_bootstrap_components as dbc
 import geopandas as gpd
-import json
-import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
@@ -89,8 +87,6 @@ resumed_last_feature_prediction_w_target['real_value'] = features[
 ].num_drought_index.to_list()
 
 entity_list = list(municipal_information.entidad_federativa.unique())
-# KEEP 3 MONTHS FOR NOW
-# future_date_list = list(resumed_set[resumed_set.future_date <= resumed_set.future_date.min() + DateOffset(months=3)].future_date.astype('string').unique())
 future_date_list = list(resumed_set.future_date.astype('string').unique())
 future_date_marker_dict = {i: {'label': date} for i, date in enumerate(future_date_list)}
 
@@ -152,7 +148,7 @@ def plot_entity_municipalities_future_drought(selected_future_date_idx,
         projection="mercator",
         color_continuous_scale='Inferno',
         range_color=([0, 1]),
-        template="plotly_dark",
+        template="plotly_white",
     )
     fig.update_geos(fitbounds="locations", visible=True)
     fig.update_layout(
@@ -164,16 +160,12 @@ def plot_entity_municipalities_future_drought(selected_future_date_idx,
     return fig
 
     # TODO: set a max and min thresholds
-    # Set color of background for appreciation
-    # Set color pallete
-    # Remove indexes.
-    # Use plotly to plot the map.
-    # Hover over municipalities to get additional information
 
 # data input and resources
-seguia_logo_img = join_paths(general_path, 'reports/figures/logo.png')
+seguia_logo_img = join_paths(general_path, 'references/branding/Logo seguia.png')
 prediction_fig_path = join_paths(general_path, 'reports/figures/prediction.png')
 realval_fig_path = join_paths(general_path, 'reports/figures/real_value.png')
+seguia_codigo_qr_img = join_paths(general_path, 'references/repo_info/seguiaqr_code.png')
 
 
 # configuration
@@ -234,6 +226,9 @@ app.layout = html.Div([
         ], style={'width': '48%', 'display': 'inline-block',
                   'float': 'right', })
     ]),
+    html.H2(children='Dale un vistazo al código', style={'textAlign':'center'}),
+    html.Div([html.Img(src=Image.open(seguia_codigo_qr_img))], style={'textAlign': 'center'}),
+
 ])
 if __name__ == '__main__':
     app.run()
