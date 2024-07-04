@@ -19,3 +19,6 @@ command_list = [
 
 for command in command_list:
     subprocess.run(command.split(' '))
+
+# TODO: Code to download data periodically and complete downloaded information.
+# TODO: Visualizations from notebook 12 into visualize.py.
