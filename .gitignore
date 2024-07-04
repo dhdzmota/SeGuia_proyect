@@ -92,6 +92,8 @@ target/
 data/
 data - copy/
 notebooks/meteorological_imgs/
+references/videos
+
 
 *.pkl
 *.dbf
@@ -105,5 +107,4 @@ notebooks/meteorological_imgs/
 *IPCC_AR6_WGII_FullReport.pdf
 *file*.png
 *test.ipynb
-
 
