@@ -9,19 +9,22 @@ Organización del proyecto
 
     ├── LICENSE
     ├── README.md          <- El README.md para el entendimiento del proyecto.
+    │
+    ├── config             <- Folder to save configuration files. 
+    │
     ├── data
     │   ├── external       <- Datos de fuentes externas.
     │   ├── interim        <- Datos intermedios transformados.
     │   ├── processed      <- Datos canónicos para entrenamiento/evaluación del modelo.
     │   └── raw            <- Datos originales.
     │
-    ├── documentation      <- Papers y documentos relevantes para el proyecto. 
-    │
     ├── models             <- Modelos entrenados y serializados. 
     │
     ├── notebooks          <- Jupyter notebooks. 
     │
     ├── references         <- Material de apoyo para el proyecto en general. 
+    │
+    ├── relevant_documents <- Papers y documentos relevantes para el proyecto.
     │
     ├── reports            <- Analisis generados como PDF, LaTeX, etc.
     │    └── figures       <- Figuras y gráficos. 

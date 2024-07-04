@@ -14,7 +14,7 @@ command_list = [
     # Evaluate
     # 'python src/models/evaluate_model.py',
     # Demo:
-    # 'python src/demo/app.py'
+     'python src/demo/app.py',
 ]
 
 for command in command_list:
